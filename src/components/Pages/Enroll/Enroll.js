@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import banar from "../../assets/enrollbanar.png";
 import CheckOutFrom from "../../shared/CheckOutFrom";
 
 const Enroll = () => {
   return (
     <div>
-      <div className="max-w-[1200px] mx-auto grid grid-cols-2 p-2 py-8">
+      <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 p-2 py-8">
         <div className="flex flex-col justify-center">
-          <h2 className="text-3xl font-bold text-gray-700">
+          <h2 className="text-3xl mt-28 font-bold text-gray-700">
             Develop Your Skills, Learn Something New, and Grow Your Skills From
             Anywhere in the World!
           </h2>
@@ -17,13 +17,16 @@ const Enroll = () => {
             options to learn better always can offer the best outcomes!
           </p>
           <div className="mt-5">
-            <button className="py-3 px-8 bg-[#00CC83] text-white rounded-md font-bold">
+            <button className="hidden md:block py-3 px-8 bg-[#00CC83] text-white rounded-md font-bold">
               Join Free Trail
             </button>
           </div>
         </div>
         <div>
           <img className="" src={banar} alt="banar images" />
+          <button className="block md:hidden mx-auto mt-10 py-3 px-8 bg-[#00CC83] text-white rounded-md font-bold">
+            Join Free Trail
+          </button>
         </div>
       </div>
 
