@@ -14,13 +14,13 @@ import FreeCategory from "./FreeCategory";
 
 const AboutLearn = () => {
   return (
-    <div className="bg-[#0f256e]">
-      <div className="mt-20 p-2">
+    <div className="">
+      <div className="mt-20 ">
         <div className="max-w-[1200px] mx-auto text-center">
-          <h3 className="text-2xl font-bold font-serif text-[#0f256e]">
+          <h3 className="text-2xl p-2 font-bold font-serif text-[#0f256e]">
             How About Learn Us
           </h3>
-          <h2 className="text-5xl font-bold my-5">
+          <h2 className=" p-2 text-5xl font-bold my-5">
             Opportunity For Online Learning
           </h2>
           <div className="grid md:grid-cols-3 my-10">
@@ -90,7 +90,7 @@ const AboutLearn = () => {
           </div>
         </div>
 
-        <div className="mt-20 bg-[#0f256e] py-10">
+        <div className="mt-20 bg-[#0f256e] py-10 px-2">
           <div className="max-w-[1200px] mx-auto flex justify-between items-center">
             <div>
               <h3 className="text-3xl font-bold text-white">

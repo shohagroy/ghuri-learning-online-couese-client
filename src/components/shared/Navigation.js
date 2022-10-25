@@ -8,11 +8,11 @@ const Navigation = () => {
   console.log(toggle);
 
   return (
-    <div className="absolute z-50   h-[10vh] w-full text-white bg-gray-100/40">
+    <div className="absolute z-50   h-[10vh] w-full text-white bg-gray-100/50">
       <div className="max-w-[1200px] mx-auto ">
         {/* Desktop Navigation Menu  */}
         <div className="flex justify-between z-50 items-center mx-3 h-[10vh]   mg:m-0">
-          <img className="h-[40px] md:h-[60px]" src={logo} alt="Logo" />
+          <img className="h-[40px] md:h-[60px] p-2" src={logo} alt="Logo" />
           <div className="items-center hidden md:flex">
             <ul className="flex">
               <NavLink to="/" className="p-3">

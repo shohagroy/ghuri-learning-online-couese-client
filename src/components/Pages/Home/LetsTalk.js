@@ -2,7 +2,7 @@ import React from "react";
 
 const LetsTalk = () => {
   return (
-    <div className="bg-[#0f256e]">
+    <div className="bg-[#0f256e] py-10">
       <div className="max-w-[1200px] mx-auto">
         <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-gray-200 text-gray-800">
           <div className="flex flex-col justify-between">
