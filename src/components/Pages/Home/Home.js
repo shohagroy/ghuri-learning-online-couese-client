@@ -1,12 +1,12 @@
 import React from "react";
-import Banar from "./Banar";
+import AboutLearn from "./AboutLearn";
 import Hero from "./Hero";
 
 const Home = () => {
   return (
     <div>
       <Hero />
-      {/* <Banar /> */}
+      <AboutLearn />
     </div>
   );
 };

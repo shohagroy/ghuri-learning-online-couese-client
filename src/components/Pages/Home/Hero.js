@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import rightImage from "../../assets/hero-two-right.png";
 
 const Hero = () => {
   return (
-    <div className="w-full  bg-[#0f256e]">
-      <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 py-10">
+    <div className="w-full  bg-[#0f256e] mb-28">
+      <div className="max-w-[1200px] mx-auto relative grid md:grid-cols-2 py-10">
         <div className="visible md:hidden ">
           <img
             className="p-10 float-right mt-20  w-[400px]"
@@ -89,6 +90,32 @@ const Hero = () => {
             src={rightImage}
             alt="side-image"
           />
+        </div>
+      </div>
+
+      {/* banar  */}
+      <div className="md:absolute w-full h-100  md:bottom-[-150px]">
+        <div className=" p-2 md:p-6 md:py-12 max-w-[1200px] mx-auto rounded-lg border-4 border-[#0f256e] bg-gray-100 text-gray-900">
+          <div className="container mx-auto">
+            <div className="flex flex-col lg:flex-row items-center justify-between">
+              <h2 className="text-center text-xl md:text-5xl tracking-tighter font-bold">
+                Up to
+                {/* <br className="sm:hidden" /> */}
+                30% Off
+              </h2>
+              <div className="md:space-x-2 text-center md:py-2 lg:py-0">
+                <span> Promo code:</span>
+                <span className="font-bold text-lg">P-HERO</span>
+              </div>
+              <Link
+                href="#"
+                rel="noreferrer noopener"
+                className="px-5 mt-4 lg:mt-0 md:py-3 rounded-md border block bg-[#00CC83] text-white font-bold "
+              >
+                Enroll Now
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
