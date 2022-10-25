@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SingleCourse = ({ course }) => {
   const { category, name, img, details } = course;
@@ -19,9 +20,11 @@ const SingleCourse = ({ course }) => {
         <p className="text-gray-900">{details.slice(0, 200)}...</p>
         <div className=" block md:absolute bottom-2 my-2 w-full">
           <div className=" w-full">
-            <button className="py-3 px-8 bg-[#00CC83] rounded-md text-white font-semibold">
-              See Details
-            </button>
+            <Link to={`../courses/details/${course.id}`}>
+              <button className="py-3 px-8 bg-[#00CC83] rounded-md text-white font-semibold">
+                See Details
+              </button>
+            </Link>
             <button className="py-3 px-8 ml-3  bg-[#00CC83] rounded-md text-white font-semibold">
               Enroll Now
             </button>

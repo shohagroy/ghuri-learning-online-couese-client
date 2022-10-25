@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import AllCourse from "../Pages/Course/AllCourse";
 import Course from "../Pages/Course/Course";
 import CourseDetails from "../Pages/Course/CourseDetails";
+import Enroll from "../Pages/Enroll/Enroll";
 import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home/Home";
 
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
           },
         ],
       },
+      { path: "/enroll", element: <Enroll /> },
     ],
   },
 ]);

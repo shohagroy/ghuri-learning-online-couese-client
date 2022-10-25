@@ -22,7 +22,7 @@ const CourseDetails = () => {
             <img
               src={img}
               alt={category}
-              className="block  md:h-[80vh] object-center w-full rounded-md bg-gray-100"
+              className="block object-cover md:h-[70vh] object-center w-full rounded-md bg-gray-100"
             />
             <div className="md:flex flex-col md:flex-row  md:items-center md:justify-between md:text-xl md:font-bold text-gray-600">
               <p>Course Duration: {duration}</p>
