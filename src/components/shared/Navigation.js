@@ -6,7 +6,7 @@ const Navigation = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="absolute z-50   h-[10vh] w-full text-white bg-gray-100/50">
+    <div className="absolute z-50   h-[10vh] w-full text-white bg-gray-300/60">
       <div className="max-w-[1200px] mx-auto ">
         {/* Desktop Navigation Menu  */}
         <div className="flex justify-between z-50 items-center mx-3 h-[10vh]   mg:m-0">

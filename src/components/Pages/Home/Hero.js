@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import rightImage from "../../assets/hero-two-right.png";
 
 const Hero = () => {

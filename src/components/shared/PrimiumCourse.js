@@ -4,11 +4,11 @@ const PrimiumCourse = ({ course }) => {
   const { img, name } = course;
   return (
     <div>
-      <div className=" m-4 rounded-md shadow-md bg-[#0f256e] text-gray-100">
+      <div className=" m-4 border-2 rounded-md shadow-xl bg-[#0f256e] text-gray-100">
         <img
           src={img}
           alt=""
-          className="object-cover object-center w-full rounded-t-md h-72 bg-gray-500"
+          className="object-cover object-center w-full rounded-t-md h-72 bg-white"
         />
         <div className="flex flex-col justify-between p-6 space-y-8">
           <div className="space-y-2">
