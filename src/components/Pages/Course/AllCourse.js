@@ -5,10 +5,9 @@ import SingleCourse from "./SingleCourse";
 const AllCourse = () => {
   const allCourse = useLoaderData();
 
-  console.log(allCourse);
   return (
     <div>
-      <div className="grid md:grid-cols-2 center gap-4 mx-8">
+      <div className="grid md:grid-cols-2 center gap-4 mx-2 md:mx-5">
         {allCourse.map((course) => (
           <SingleCourse key={course.id} course={course} />
         ))}
