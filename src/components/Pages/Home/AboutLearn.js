@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import image1 from "../../assets/cr-1.png";
 import image2 from "../../assets/cr-2.png";
@@ -90,18 +91,43 @@ const AboutLearn = () => {
           </div>
         </div>
 
+        <div className="">
+          <div className=" p-2 md:p-6 md:py-12 max-w-[1200px] mx-auto rounded-lg  bg-[#0f256e] text-gray-900">
+            <div className="container mx-auto">
+              <div className="flex flex-col lg:flex-row items-center justify-between text-white">
+                <h2 className="text-center text-xl md:text-5xl tracking-tighter font-bold">
+                  Up to
+                  {/* <br className="sm:hidden" /> */}
+                  30% Off
+                </h2>
+                <div className="md:space-x-2 text-center md:py-2 lg:py-0">
+                  <span> Promo code:</span>
+                  <span className="font-bold text-lg">P-HERO</span>
+                </div>
+                <Link
+                  href="#"
+                  rel="noreferrer noopener"
+                  className="px-5 mt-4 lg:mt-0 md:py-3 rounded-md border block bg-[#00CC83] text-white font-bold "
+                >
+                  Enroll Now
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="mt-20 bg-[#0f256e] py-10 px-2">
-          <div className="max-w-[1200px] mx-auto flex justify-between items-center">
+          <div className="max-w-[1200px] mx-auto flex flex-col md:justify-between items-center ">
             <div>
               <h3 className="text-3xl font-bold text-white">
                 Our Other Course
               </h3>
-              <p className="text-xl text-gray-100">
+              {/* <p className="text-xl text-gray-100">
                 Registration to 1 Month Free
-              </p>
+              </p> */}
             </div>
-            <div className="flex items-center">
-              <button className="py-2 px-4 text-white font-bold rounded-lg text- ml-2 bg-[#00CC83]">
+            <div className="flex  items-center">
+              <button className="py-2 m-2 px-4 text-white font-bold rounded-lg text- ml-2 bg-[#00CC83]">
                 Registration Now
               </button>
             </div>

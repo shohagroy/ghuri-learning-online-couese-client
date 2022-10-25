@@ -9,9 +9,9 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     element: <Main />,
     children: [
-      { path: "/", element: <Home /> },
       {
-        path: "/home",
+        path: "/",
+        loader: () => fetch("http://localhost:5000/"),
         element: <Home />,
       },
     ],

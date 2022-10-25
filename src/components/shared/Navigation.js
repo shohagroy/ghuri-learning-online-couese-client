@@ -5,8 +5,6 @@ import logo from "../assets/logo.svg";
 const Navigation = () => {
   const [toggle, setToggle] = useState(false);
 
-  console.log(toggle);
-
   return (
     <div className="absolute z-50   h-[10vh] w-full text-white bg-gray-100/50">
       <div className="max-w-[1200px] mx-auto ">
