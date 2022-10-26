@@ -16,35 +16,13 @@ const Primium = ({ courses }) => {
             ))}
           </div>
         </div>
-        <button
-          aria-label="Slide forward"
-          id="next"
-          className="absolute right-0 z-30 p-2 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
-        >
-          <svg
-            width="8"
-            height="14"
-            viewBox="0 0 8 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-4 h-4"
-          >
-            <path
-              d="M1 1L7 7L1 13"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-          </svg>
-        </button>
       </div>
 
       <Link
         to="/courses"
-        className="float-right py-3 px-8 bg-[#00CC83] text-white rounded-md font-bold"
+        className="float-right py-3 mt-3 px-8 bg-[#00CC83] text-white rounded-md font-bold"
       >
-        See All Course
+        See Full Details
       </Link>
     </div>
   );

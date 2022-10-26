@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import { AuthProvaider } from "../AuthContex/AuthContex";
 
 const Navigation = () => {
+  const { name } = useContext(AuthProvaider);
+
+  console.log(name);
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -30,7 +34,7 @@ const Navigation = () => {
               </NavLink>
             </ul>
             <div>
-              <button className="px-5 py-1 bg-blue-400 text-white font-bold rounded-lg">
+              <button className="px-5 ml-5 py-1 bg-[#00CC83] text-white font-bold rounded-lg">
                 Login
               </button>
             </div>
