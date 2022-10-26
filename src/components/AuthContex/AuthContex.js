@@ -41,7 +41,6 @@ const AuthContex = ({ children }) => {
   };
 
   const userSignOut = () => {
-    setLoading(true);
     signOut(auth)
       .then(() => {
         setUser("");
@@ -50,6 +49,7 @@ const AuthContex = ({ children }) => {
         console.error(error);
         setUser("");
       });
+
     setLoading(false);
   };
 
@@ -64,7 +64,6 @@ const AuthContex = ({ children }) => {
   };
 
   const userProfileUpdate = (userName, photoUrl, phone) => {
-    setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: userName,
       photoURL: photoUrl,
@@ -80,8 +79,8 @@ const AuthContex = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        setLoading(false);
       }
+      setLoading(false);
     });
 
     return () => {

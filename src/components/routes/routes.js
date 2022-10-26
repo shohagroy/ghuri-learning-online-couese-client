@@ -6,6 +6,7 @@ import CourseDetails from "../Pages/Course/CourseDetails";
 import Enroll from "../Pages/Enroll/Enroll";
 import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home/Home";
+import PrientCourseDetails from "../Pages/PrientCourseDetails";
 import Login from "../shared/Login";
 import Regestation from "../shared/Regestation";
 import PrivateRoute from "./PrivateRouter";
@@ -23,14 +24,11 @@ export const router = createBrowserRouter([
       },
       { path: "/login", element: <Login /> },
       { path: "/regestation", element: <Regestation /> },
+      { path: "/prient-enroll", element: <PrientCourseDetails /> },
       {
         path: "/courses",
         loader: () => fetch("http://localhost:5000/courses"),
-        element: (
-          <PrivateRoute>
-            <Course />
-          </PrivateRoute>
-        ),
+        element: <Course />,
         children: [
           {
             path: "/courses",

@@ -64,6 +64,7 @@ const SignUp = () => {
           <div className="space-y-1 text-sm">
             <label className="block text-left text-gray-400">Your Name</label>
             <input
+              required
               type="text"
               name="name"
               placeholder="Your Name"
@@ -73,6 +74,7 @@ const SignUp = () => {
           <div className="space-y-1 text-sm">
             <label className="block text-left text-gray-400">Your Email</label>
             <input
+              required
               type="email"
               name="email"
               placeholder="Your email"
@@ -82,6 +84,7 @@ const SignUp = () => {
           <div className="space-y-1 relative text-sm">
             <label className="block text-gray-400 text-left">Password</label>
             <input
+              required
               type={`${viewPassword ? "text" : "password"}`}
               name="password"
               id="password"

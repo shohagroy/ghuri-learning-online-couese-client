@@ -11,6 +11,7 @@ import { AuthProvaider } from "../AuthContex/AuthContex";
 const Login = () => {
   const [loginError, setLoginError] = useState("");
   const [resetPassword, setResetPassword] = useState(false);
+  const [viewPassword, setViewPassword] = useState(false);
 
   const {
     userLogin,
@@ -22,8 +23,6 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-
-  const [viewPassword, setViewPassword] = useState(false);
 
   const path = location.state?.path?.pathname || "/";
 
@@ -129,6 +128,7 @@ const Login = () => {
           <div className="space-y-1 text-sm">
             <label className="block text-left text-gray-400">Your Email</label>
             <input
+              required
               type="email"
               name="email"
               placeholder="Your Email"
@@ -138,6 +138,7 @@ const Login = () => {
           <div className="space-y-1 text-sm relative">
             <label className="block text-gray-400 text-left">Password</label>
             <input
+              required
               type={`${viewPassword ? "text" : "password"}`}
               name="password"
               id="password"
