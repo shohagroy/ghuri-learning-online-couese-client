@@ -6,6 +6,8 @@ import CourseDetails from "../Pages/Course/CourseDetails";
 import Enroll from "../Pages/Enroll/Enroll";
 import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home/Home";
+import Login from "../shared/Login";
+import Regestation from "../shared/Regestation";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +20,8 @@ export const router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/"),
         element: <Home />,
       },
+      { path: "/login", element: <Login /> },
+      { path: "/regestation", element: <Regestation /> },
       {
         path: "/courses",
         loader: () => fetch("http://localhost:5000/courses"),

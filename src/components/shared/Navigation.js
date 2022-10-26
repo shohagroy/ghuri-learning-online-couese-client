@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { AuthProvaider } from "../AuthContex/AuthContex";
 
@@ -34,9 +34,12 @@ const Navigation = () => {
               </NavLink>
             </ul>
             <div>
-              <button className="px-5 ml-5 py-1 bg-[#00CC83] text-white font-bold rounded-lg">
+              <Link
+                to="/login"
+                className="px-5 ml-5 py-1 bg-[#00CC83] text-white font-bold rounded-lg"
+              >
                 Login
-              </button>
+              </Link>
             </div>
           </div>
 
