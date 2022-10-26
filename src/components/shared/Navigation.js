@@ -1,11 +1,25 @@
+import {
+  FacebookAuthProvider,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+} from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { AuthProvaider } from "../AuthContex/AuthContex";
 
+import swal from "sweetalert";
+
 const Navigation = () => {
-  const { user, userSignOut, userProfileUpdate, EmailVerification } =
-    useContext(AuthProvaider);
+  const {
+    user,
+    userSignOut,
+    userProfileUpdate,
+    EmailVerification,
+    googleSignIn,
+    facebookSignin,
+    gitHubSignin,
+  } = useContext(AuthProvaider);
 
   const [themes, setThemes] = useState(false);
 
@@ -24,19 +38,64 @@ const Navigation = () => {
 
     userProfileUpdate(userName, photoUrl, phone)
       .then(() => {
-        console.log("user update");
+        swal({
+          title: "Successfully!",
+          text: "Your Profile has been Updated!",
+          icon: "success",
+          button: "Ok!",
+        });
         setProfileUpdate(!profileUpdate);
       })
       .catch((error) => {
         console.error(error);
       });
   };
+
   const emailVerifiedHandelar = () => {
     EmailVerification().then(() => {
       console.log("send verification code");
-      // Email verification sent!
-      // ...
+      swal({
+        title: "Code Send!",
+        text: "Verification Code Send Successfully! Please Chek Your Email",
+        icon: "success",
+        button: "Ok!",
+      });
     });
+  };
+
+  const googleLoginHandelar = () => {
+    const provaider = new GoogleAuthProvider();
+    googleSignIn(provaider)
+      .then((res) => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const facebookLoginHandelar = () => {
+    const provider = new FacebookAuthProvider();
+    facebookSignin(provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const gitHubLoginHandelar = () => {
+    const provaider = new GithubAuthProvider();
+
+    gitHubSignin(provaider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -258,7 +317,7 @@ const Navigation = () => {
                   <input
                     name="phone"
                     className="p-1 bg-gray-100 pl-2 rounded-md border-2 border-black w-full"
-                    type="number"
+                    type="text"
                     placeholder={user?.phoneNumber}
                   />
                 </div>
@@ -320,40 +379,62 @@ const Navigation = () => {
             <ul>
               <li
                 onClick={() => setToggle(!toggle)}
-                className="p-3 cursor-pointer m-2 border-b-2 text-center"
+                className="p-3 hover:bg-[#00CC83] cursor-pointer m-2 border-b-2 text-center"
               >
-                <NavLink to="/">Home</NavLink>
+                <NavLink className="block" to="/">
+                  Home
+                </NavLink>
               </li>
               <li
                 onClick={() => setToggle(!toggle)}
-                className="p-3 cursor-pointer m-2 border-b-2 text-center"
+                className="p-3 hover:bg-[#00CC83] cursor-pointer m-2 border-b-2 text-center"
               >
-                <NavLink to="/courses">Courses</NavLink>
+                <NavLink className="block" to="/courses">
+                  Courses
+                </NavLink>
               </li>
               <li
                 onClick={() => setToggle(!toggle)}
-                className="p-3 cursor-pointer m-2 border-b-2 text-center"
+                className="p-3 hover:bg-[#00CC83] cursor-pointer m-2 border-b-2 text-center"
               >
-                <NavLink to="FAQ">FAQ</NavLink>
+                <NavLink className="block" to="FAQ">
+                  FAQ
+                </NavLink>
               </li>
               <li
                 onClick={() => setToggle(!toggle)}
-                className="p-3 cursor-pointer m-2 border-b-2 text-center"
+                className="p-3 hover:bg-[#00CC83] cursor-pointer m-2 border-b-2 text-center"
               >
-                <NavLink to="blog">Blog</NavLink>
+                <NavLink className="block" to="blog">
+                  Blog
+                </NavLink>
               </li>
             </ul>
-            <Link to="/login" onClick={() => setToggle(!toggle)}>
-              <button className="w-full bg-[#00CC83] my-5 text-xl rounded-md text-white py-2">
+            <Link
+              className={`${user ? "hidden" : "block"}`}
+              to="/login"
+              onClick={() => setToggle(!toggle)}
+            >
+              <button className="w-full bg-[#00CC83] my-5 text-xl rounded-md text-white py-3">
                 Log in
               </button>
             </Link>
+
+            <button
+              onClick={() => userSignOut()}
+              className={` ${
+                user ? "block" : "hidden"
+              } w-full bg-red-600 my-5 text-xl rounded-md text-white placeholder-opacity-30 py-3`}
+            >
+              Log out
+            </button>
             <div className="text-center">
-              <div className="my-6 space-y-4">
+              <div className="my-6 space-y-4 ">
                 <button
+                  onClick={googleLoginHandelar}
                   aria-label="Login with Google"
                   type="button"
-                  className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+                  className="flex hover:bg-[#00CC83] items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -365,9 +446,10 @@ const Navigation = () => {
                   <p>Login with Google</p>
                 </button>
                 <button
+                  onClick={facebookLoginHandelar}
                   aria-label="Login with facebook"
                   role="button"
-                  className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+                  className="flex hover:bg-[#00CC83] items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -379,10 +461,12 @@ const Navigation = () => {
                   </svg>
                   <p>Login with Facebook</p>
                 </button>
+
                 <button
+                  onClick={gitHubLoginHandelar}
                   aria-label="Login with GitHub"
                   role="button"
-                  className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+                  className="flex hover:bg-[#00CC83] items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

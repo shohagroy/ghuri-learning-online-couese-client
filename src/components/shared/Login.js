@@ -5,6 +5,7 @@ import {
 } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 import { AuthProvaider } from "../AuthContex/AuthContex";
 
 const Login = () => {
@@ -42,28 +43,52 @@ const Login = () => {
       });
   };
 
-  const passwordResetcodeSend = (email) => {
-    passwordResetEmail(email);
+  const passwordResetcodeSend = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.forgateEmail.value;
+
+    console.log(email);
+
+    passwordResetEmail(email)
+      .then((res) => {
+        setResetPassword(!resetPassword);
+        swal({
+          title: "Successful!",
+          text: "Password Reset Code Send to Your Email! Please Chek Your Email",
+          icon: "success",
+          button: "Ok",
+        });
+      })
+      .catch((error) => {
+        setLoginError(error.code);
+      });
   };
 
   const googleLoginHandelar = () => {
     const provaider = new GoogleAuthProvider();
     googleSignIn(provaider)
-      .then((res) => {})
+      .then((res) => {
+        if (res.user) {
+          navigate(path, { relative: true });
+        }
+      })
       .catch((error) => {
         setLoginError(error.code);
       });
-    console.log("button click");
   };
 
   const facebookLoginHandelar = () => {
     const provider = new FacebookAuthProvider();
     facebookSignin(provider)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        console.log();
+        if (result.user.uid) {
+          navigate(path, { relative: true });
+        }
       })
       .catch((error) => {
+        setLoginError(error.code);
         console.error(error);
       });
   };
@@ -73,11 +98,12 @@ const Login = () => {
 
     gitHubSignin(provaider)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-        // ...
+        if (result.user) {
+          navigate(path, { relative: true });
+        }
       })
       .catch((error) => {
+        setLoginError(error.code);
         console.error(error);
       });
   };
@@ -121,50 +147,51 @@ const Login = () => {
                 Forgot Password?
               </p>
             </div>
-
-            <div
-              className={`${
-                resetPassword ? "absolute" : "hidden"
-              } top-0 left-0 w-full p-2 rounded-md bg-[#0f256e] border-2 border-white`}
-            >
-              <div className="flex justify-between p-2">
-                <label className="block text-white text-xl py-2">
-                  Your Email
-                </label>
-                <span
-                  onClick={() => setResetPassword(!resetPassword)}
-                  className="cursor-pointer p-1 rounded-full  text-red-600"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-8 h-8"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </span>
-              </div>
-              <input
-                className="w-full bg-gray-200 border-2 border-black rounded-md p-2"
-                type="email"
-                placeholder="Your Email"
-              />
-              <div className="mt-5">
-                <button className="p-3 rounded-md bg-[#00CC83] text-white">
-                  Send Code
-                </button>
-              </div>
-            </div>
           </div>
           <button className="block w-full p-3 text-center rounded-sm text-white font-bold bg-[#00CC83]">
             Log in
+          </button>
+        </form>
+
+        <form
+          onSubmit={passwordResetcodeSend}
+          className={`${
+            resetPassword ? "absolute" : "hidden"
+          } top-[30%] left-0 md:left-[36%] w-full md:w-[420px] p-2 rounded-md bg-[#0f256e] border-2 border-white`}
+        >
+          <div className="flex justify-between p-2">
+            <label className="block text-white text-xl py-2">Your Email</label>
+            <span
+              onClick={() => setResetPassword(!resetPassword)}
+              className="cursor-pointer p-1 rounded-full  text-red-600"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-8 h-8"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </span>
+          </div>
+          <input
+            className="w-full bg-gray-200 border-2 border-black rounded-md p-2"
+            type="email"
+            name="forgateEmail"
+            placeholder="Your Email"
+          />
+          <button
+            type="submit"
+            className="p-3 mt-5 rounded-md bg-[#00CC83] text-white"
+          >
+            Send Code
           </button>
         </form>
         <div className="flex items-center pt-4 space-x-1">

@@ -54,10 +54,12 @@ const AuthContex = ({ children }) => {
   };
 
   const facebookSignin = (provider) => {
+    setLoading(true);
     return signInWithPopup(auth, provider);
   };
 
   const gitHubSignin = (provider) => {
+    setLoading(true);
     return signInWithPopup(auth, provider);
   };
 

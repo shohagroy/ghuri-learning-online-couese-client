@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const PrimiumCourse = ({ course }) => {
   const { img, name } = course;
   return (
-    <div>
-      <div className=" m-4 border-2 rounded-md shadow-xl bg-[#0f256e] text-gray-100">
+    <div className="">
+      <div className=" w-[400px]  m-4 border-2 rounded-md shadow-xl bg-[#0f256e] text-gray-100">
         <img
           src={img}
           alt=""
-          className="object-cover object-center w-full rounded-t-md h-72 bg-white"
+          className=" object-center w-full rounded-t-md h-72 bg-white"
         />
         <div className="flex flex-col justify-between p-6 space-y-8">
           <div className="space-y-2">

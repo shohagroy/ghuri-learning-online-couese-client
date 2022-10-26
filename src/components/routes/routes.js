@@ -8,6 +8,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../shared/Login";
 import Regestation from "../shared/Regestation";
+import PrivateRoute from "./PrivateRouter";
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +26,11 @@ export const router = createBrowserRouter([
       {
         path: "/courses",
         loader: () => fetch("http://localhost:5000/courses"),
-        element: <Course />,
+        element: (
+          <PrivateRoute>
+            <Course />
+          </PrivateRoute>
+        ),
         children: [
           {
             path: "/courses",
@@ -40,7 +45,14 @@ export const router = createBrowserRouter([
           },
         ],
       },
-      { path: "/enroll", element: <Enroll /> },
+      {
+        path: "/enroll",
+        element: (
+          <PrivateRoute>
+            <Enroll />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
