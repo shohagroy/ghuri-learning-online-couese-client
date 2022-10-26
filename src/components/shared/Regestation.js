@@ -51,7 +51,7 @@ const SignUp = () => {
         <p
           className={`${
             signUpError ? "block" : "hidden"
-          } text-2xl font-bold text-red-600`}
+          } text-2xl text-center font-bold text-red-600`}
         >
           {signUpError.slice(5)}
         </p>
@@ -88,7 +88,10 @@ const SignUp = () => {
               className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-100 text-gray-900 focus:border-violet-400"
             />
           </div>
-          <button className="block w-full p-3 text-center rounded-sm text-white font-bold bg-[#00CC83] ">
+          <button
+            type="submit"
+            className="block w-full p-3 text-center rounded-sm text-white font-bold bg-[#00CC83] "
+          >
             Regestation
           </button>
         </form>

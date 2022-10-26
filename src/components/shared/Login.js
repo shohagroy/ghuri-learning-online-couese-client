@@ -1,12 +1,23 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import {
+  FacebookAuthProvider,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+} from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthProvaider } from "../AuthContex/AuthContex";
 
 const Login = () => {
   const [loginError, setLoginError] = useState("");
+  const [resetPassword, setResetPassword] = useState(false);
 
-  const { userLogin, googleSignIn } = useContext(AuthProvaider);
+  const {
+    userLogin,
+    googleSignIn,
+    passwordResetEmail,
+    facebookSignin,
+    gitHubSignin,
+  } = useContext(AuthProvaider);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,15 +42,44 @@ const Login = () => {
       });
   };
 
-  const provaider = new GoogleAuthProvider();
+  const passwordResetcodeSend = (email) => {
+    passwordResetEmail(email);
+  };
 
   const googleLoginHandelar = () => {
+    const provaider = new GoogleAuthProvider();
     googleSignIn(provaider)
       .then((res) => {})
       .catch((error) => {
         setLoginError(error.code);
       });
     console.log("button click");
+  };
+
+  const facebookLoginHandelar = () => {
+    const provider = new FacebookAuthProvider();
+    facebookSignin(provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const gitHubLoginHandelar = () => {
+    const provaider = new GithubAuthProvider();
+
+    gitHubSignin(provaider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -56,7 +96,7 @@ const Login = () => {
 
         <form
           onSubmit={userLoginHandelar}
-          className="space-y-6 ng-untouched ng-pristine ng-valid"
+          className="relative space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-1 text-sm">
             <label className="block text-left text-gray-400">Your Email</label>
@@ -76,10 +116,51 @@ const Login = () => {
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-100 text-gray-900 focus:border-violet-400"
             />
-            <div className="flex justify-end text-xs text-gray-400">
-              <a rel="noopener noreferrer" href="#">
+            <div className="flex cursor-pointer justify-end text-xs text-gray-400">
+              <p onClick={() => setResetPassword(!resetPassword)}>
                 Forgot Password?
-              </a>
+              </p>
+            </div>
+
+            <div
+              className={`${
+                resetPassword ? "absolute" : "hidden"
+              } top-0 left-0 w-full p-2 rounded-md bg-[#0f256e] border-2 border-white`}
+            >
+              <div className="flex justify-between p-2">
+                <label className="block text-white text-xl py-2">
+                  Your Email
+                </label>
+                <span
+                  onClick={() => setResetPassword(!resetPassword)}
+                  className="cursor-pointer p-1 rounded-full  text-red-600"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-8 h-8"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <input
+                className="w-full bg-gray-200 border-2 border-black rounded-md p-2"
+                type="email"
+                placeholder="Your Email"
+              />
+              <div className="mt-5">
+                <button className="p-3 rounded-md bg-[#00CC83] text-white">
+                  Send Code
+                </button>
+              </div>
             </div>
           </div>
           <button className="block w-full p-3 text-center rounded-sm text-white font-bold bg-[#00CC83]">
@@ -108,18 +189,21 @@ const Login = () => {
             </svg>
           </button>
           <button
+            onClick={facebookLoginHandelar}
             aria-label="Log in with Twitter"
             className="p-3 rounded-full bg-[#00CC83] text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
               viewBox="0 0 32 32"
-              className="w-5 h-5 fill-current"
+              className="w-5 h-5"
             >
-              <path d="M31.937 6.093c-1.177 0.516-2.437 0.871-3.765 1.032 1.355-0.813 2.391-2.099 2.885-3.631-1.271 0.74-2.677 1.276-4.172 1.579-1.192-1.276-2.896-2.079-4.787-2.079-3.625 0-6.563 2.937-6.563 6.557 0 0.521 0.063 1.021 0.172 1.495-5.453-0.255-10.287-2.875-13.52-6.833-0.568 0.964-0.891 2.084-0.891 3.303 0 2.281 1.161 4.281 2.916 5.457-1.073-0.031-2.083-0.328-2.968-0.817v0.079c0 3.181 2.26 5.833 5.26 6.437-0.547 0.145-1.131 0.229-1.724 0.229-0.421 0-0.823-0.041-1.224-0.115 0.844 2.604 3.26 4.5 6.14 4.557-2.239 1.755-5.077 2.801-8.135 2.801-0.521 0-1.041-0.025-1.563-0.088 2.917 1.86 6.36 2.948 10.079 2.948 12.067 0 18.661-9.995 18.661-18.651 0-0.276 0-0.557-0.021-0.839 1.287-0.917 2.401-2.079 3.281-3.396z"></path>
+              <path d="M32 16c0-8.839-7.167-16-16-16-8.839 0-16 7.161-16 16 0 7.984 5.849 14.604 13.5 15.803v-11.177h-4.063v-4.625h4.063v-3.527c0-4.009 2.385-6.223 6.041-6.223 1.751 0 3.584 0.312 3.584 0.312v3.937h-2.021c-1.984 0-2.604 1.235-2.604 2.5v3h4.437l-0.713 4.625h-3.724v11.177c7.645-1.199 13.5-7.819 13.5-15.803z"></path>
             </svg>
           </button>
           <button
+            onClick={gitHubLoginHandelar}
             aria-label="Log in with GitHub"
             className="p-3 rounded-full bg-[#00CC83] text-white"
           >
@@ -137,7 +221,6 @@ const Login = () => {
           <Link
             to="/regestation"
             rel="noopener noreferrer"
-            href="#"
             className="underline text-gray-900"
           >
             Sign up

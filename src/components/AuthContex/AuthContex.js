@@ -8,6 +8,8 @@ import {
   signOut,
   signInWithEmailAndPassword,
   updateProfile,
+  sendEmailVerification,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 
 export const AuthProvaider = createContext();
@@ -29,6 +31,10 @@ const AuthContex = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const passwordResetEmail = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+
   const googleSignIn = (provider) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
@@ -47,11 +53,25 @@ const AuthContex = ({ children }) => {
     setLoading(false);
   };
 
-  const userProfileUpdate = (userName) => {
+  const facebookSignin = (provider) => {
+    return signInWithPopup(auth, provider);
+  };
+
+  const gitHubSignin = (provider) => {
+    return signInWithPopup(auth, provider);
+  };
+
+  const userProfileUpdate = (userName, photoUrl, phone) => {
     setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: userName,
+      photoURL: photoUrl,
+      phone: phone,
     });
+  };
+
+  const EmailVerification = () => {
+    return sendEmailVerification(auth.currentUser);
   };
 
   useEffect(() => {
@@ -67,8 +87,6 @@ const AuthContex = ({ children }) => {
     };
   }, []);
 
-  const name = { name: "shohag" };
-
   const authInfo = {
     user,
     googleSignIn,
@@ -78,7 +96,10 @@ const AuthContex = ({ children }) => {
     userLogin,
     setLoading,
     loading,
-    name,
+    EmailVerification,
+    facebookSignin,
+    gitHubSignin,
+    passwordResetEmail,
   };
 
   return (

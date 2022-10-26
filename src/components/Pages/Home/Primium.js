@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import PrimiumCourse from "../../shared/PrimiumCourse";
 
 const Primium = ({ courses }) => {
-  console.log(courses);
-
   return (
     <div className="max-w-[1200px] mx-auto ">
       <h3 className="text-3xl mx-4 font-bold font-serif">Our Priemum Course</h3>
