@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PrimiumCourse = ({ course }) => {
   const { img, name } = course;
@@ -14,12 +15,12 @@ const PrimiumCourse = ({ course }) => {
           <div className="space-y-2">
             <h2 className="text-3xl font-semibold tracking-wide">{name}</h2>
           </div>
-          <button
-            type="button"
+          <Link
+            to="/enroll"
             className="flex items-center justify-center w-full p-3 font-bold tracking-wide rounded-md bg-[#00CC83] text-white"
           >
             Enroll Now
-          </button>
+          </Link>
         </div>
       </div>
     </div>

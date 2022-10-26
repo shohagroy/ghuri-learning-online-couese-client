@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import rightImage from "../../assets/hero-two-right.png";
 
 const Hero = () => {
@@ -78,9 +79,12 @@ const Hero = () => {
           </div>
 
           <div className="mt-8 mx-2">
-            <button className="py-4 text-xl px-8 rounded-xl bg-[#00CC83] text-white font-bold">
+            <Link
+              to="enroll"
+              className="py-4 text-xl px-8 rounded-xl bg-[#00CC83] text-white font-bold"
+            >
               Registration Now
-            </button>
+            </Link>
           </div>
         </div>
         <div className="hidden md:block ">

@@ -105,8 +105,7 @@ const AboutLearn = () => {
                   <span className="font-bold text-lg">P-HERO</span>
                 </div>
                 <Link
-                  href="#"
-                  rel="noreferrer noopener"
+                  to="/enroll"
                   className="px-5 mt-4 lg:mt-0 md:py-3 rounded-md border block bg-[#00CC83] text-white font-bold "
                 >
                   Enroll Now
@@ -118,19 +117,15 @@ const AboutLearn = () => {
 
         <div className="mt-20 bg-[#0f256e] py-10 px-2">
           <div className="max-w-[1200px] mx-auto flex flex-col md:justify-between items-center ">
-            <div>
-              <h3 className="text-3xl font-bold text-white">
+            <div className="text-center">
+              <h3 className="text-5xl font-bold text-white">
                 Our Other Course
               </h3>
-              {/* <p className="text-xl text-gray-100">
+              <p className="text-lg text-gray-100">
                 Registration to 1 Month Free
-              </p> */}
+              </p>
             </div>
-            <div className="flex  items-center">
-              <button className="py-2 m-2 px-4 text-white font-bold rounded-lg text- ml-2 bg-[#00CC83]">
-                Registration Now
-              </button>
-            </div>
+            <div className="flex  items-center"></div>
           </div>
 
           <div className="max-w-[1200px] mx-auto">
@@ -147,6 +142,9 @@ const AboutLearn = () => {
               <FreeCategory image={image2} name={"Teaching & Academic "} />
               <FreeCategory image={image3} name={"WorkShop & Live Class "} />
             </div>
+            <button className="py-2 m-2 px-4 mx-auto text-white font-bold rounded-lg text- ml-2 bg-[#00CC83]">
+              Registration Now
+            </button>
           </div>
         </div>
       </div>

@@ -6,13 +6,13 @@ const Navigation = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="absolute z-50   h-[10vh] w-full text-white bg-gray-300/60">
+    <div className="absolute z-50   h-[10vh] w-full text-white bg-gray-100">
       <div className="max-w-[1200px] mx-auto ">
         {/* Desktop Navigation Menu  */}
         <div className="flex justify-between z-50 items-center mx-3 h-[10vh]   mg:m-0">
           <img className="h-[40px] md:h-[60px] p-2" src={logo} alt="Logo" />
           <div className="items-center hidden md:flex">
-            <ul className="flex">
+            <ul className="flex text-[#00CC83] font-bold">
               <NavLink to="/" className="p-3">
                 Home
               </NavLink>
@@ -37,15 +37,18 @@ const Navigation = () => {
           </div>
 
           {/* hambargar */}
-          <div onClick={() => setToggle(!toggle)} className=" md:hidden">
+          <div
+            onClick={() => setToggle(!toggle)}
+            className="text-[#00CC83] md:hidden"
+          >
             <span className={`${toggle ? "hidden" : "block"} cursor-pointer`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={1.5}
+                strokeWidth={2}
                 stroke="currentColor"
-                className="w-8 h-8"
+                className="w-10 h-10"
               >
                 <path
                   strokeLinecap="round"
@@ -60,9 +63,9 @@ const Navigation = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={1.5}
+                strokeWidth={2}
                 stroke="currentColor"
-                className="w-8 h-8"
+                className="w-10 h-10"
               >
                 <path
                   strokeLinecap="round"
@@ -82,16 +85,28 @@ const Navigation = () => {
             } absolute  left-0 duration-500 w-full h-[90vh] bg-gray-800/80`}
           >
             <ul>
-              <li className="p-3 m-2 border-b-2 text-center">
+              <li
+                onClick={() => setToggle(!toggle)}
+                className="p-3 cursor-pointer m-2 border-b-2 text-center"
+              >
                 <NavLink to="/">Home</NavLink>
               </li>
-              <li className="p-3 m-2 border-b-2 text-center">
+              <li
+                onClick={() => setToggle(!toggle)}
+                className="p-3 cursor-pointer m-2 border-b-2 text-center"
+              >
                 <NavLink to="/courses">Courses</NavLink>
               </li>
-              <li className="p-3 m-2 border-b-2 text-center">
+              <li
+                onClick={() => setToggle(!toggle)}
+                className="p-3 cursor-pointer m-2 border-b-2 text-center"
+              >
                 <NavLink to="FAQ">FAQ</NavLink>
               </li>
-              <li className="p-3 m-2 border-b-2 text-center">
+              <li
+                onClick={() => setToggle(!toggle)}
+                className="p-3 cursor-pointer m-2 border-b-2 text-center"
+              >
                 <NavLink to="blog">Blog</NavLink>
               </li>
             </ul>

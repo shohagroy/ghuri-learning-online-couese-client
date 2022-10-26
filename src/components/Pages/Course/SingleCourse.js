@@ -25,9 +25,12 @@ const SingleCourse = ({ course }) => {
                 See Details
               </button>
             </Link>
-            <button className="py-3 px-8 ml-3  bg-[#00CC83] rounded-md text-white font-semibold">
+            <Link
+              to="/enroll"
+              className="py-3 px-8 ml-3  bg-[#00CC83] rounded-md text-white font-semibold"
+            >
               Enroll Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>

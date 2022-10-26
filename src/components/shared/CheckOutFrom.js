@@ -67,7 +67,6 @@ const CheckOutFrom = () => {
                     className="w-full bg-gray-200 rounded-md p-2"
                     name="Course Category"
                     id=""
-                    value="course Category"
                   >
                     <option className="rounded-md" value="Course">
                       Free Course
@@ -81,7 +80,6 @@ const CheckOutFrom = () => {
               <div className="col-span-full sm:col-span-3">
                 <div className="w-full  text-black">
                   <select
-                    value="Course name"
                     className="w-full bg-gray-200 rounded-md p-2"
                     name="Course Category"
                     id=""
@@ -96,11 +94,12 @@ const CheckOutFrom = () => {
                     </option>
                     <option value="Course">Digital Marketing</option>
                     <option value="Course">Professional Photography</option>
+                    <option value="Course">Free Course</option>
                   </select>
                 </div>
               </div>
               <div className="col-span-full">
-                <label className="text-sm">Memo</label>
+                <label className="text-sm">Free Course Name</label>
                 <textarea
                   placeholder=""
                   className="w-full p-2 rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 border-gray-700 text-gray-900"
