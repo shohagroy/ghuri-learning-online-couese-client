@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: () => fetch("http://localhost:5000/"),
+        loader: () => fetch("https://ghoori-learning.vercel.app/"),
         element: <Home />,
       },
       { path: "/login", element: <Login /> },
@@ -36,18 +36,20 @@ export const router = createBrowserRouter([
       { path: "/blog", element: <Blog /> },
       {
         path: "/courses",
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () => fetch("https://ghoori-learning.vercel.app/courses"),
         element: <Course />,
         children: [
           {
             path: "/courses",
-            loader: () => fetch("http://localhost:5000/courses"),
+            loader: () => fetch("https://ghoori-learning.vercel.app/courses"),
             element: <AllCourse />,
           },
           {
             path: "/courses/details/:id",
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/courses/details/${params.id}`),
+              fetch(
+                `https://ghoori-learning.vercel.app/courses/details/${params.id}`
+              ),
             element: <CourseDetails />,
           },
         ],
