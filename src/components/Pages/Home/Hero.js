@@ -80,10 +80,10 @@ const Hero = () => {
 
           <div className="mt-8 mx-2">
             <Link
-              to="enroll"
+              to="/regestation"
               className="py-4 text-xl px-8 rounded-xl bg-[#00CC83] text-white font-bold"
             >
-              Registration Now
+              Regestation Now
             </Link>
           </div>
         </div>

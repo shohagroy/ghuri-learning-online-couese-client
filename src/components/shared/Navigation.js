@@ -4,7 +4,7 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { AuthProvaider } from "../AuthContex/AuthContex";
 
@@ -26,6 +26,11 @@ const Navigation = () => {
   const [toggle, setToggle] = useState(false);
   const [profile, setProfile] = useState(false);
   const [profileUpdate, setProfileUpdate] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const path = location.state?.path?.pathname || "/";
 
   const updateHandelar = (e) => {
     e.preventDefault();
@@ -64,7 +69,9 @@ const Navigation = () => {
   const googleLoginHandelar = () => {
     const provaider = new GoogleAuthProvider();
     googleSignIn(provaider)
-      .then((res) => {})
+      .then((res) => {
+        navigate(path, { relative: true });
+      })
       .catch((error) => {
         console.error(error);
       });
@@ -76,6 +83,7 @@ const Navigation = () => {
     facebookSignin(provider)
       .then((result) => {
         const user = result.user;
+        navigate(path, { relative: true });
       })
 
       .catch((error) => {
@@ -90,6 +98,7 @@ const Navigation = () => {
     gitHubSignin(provaider)
       .then((result) => {
         const user = result.user;
+        navigate(path, { relative: true });
       })
       .catch((error) => {
         console.error(error);
@@ -239,6 +248,7 @@ const Navigation = () => {
                         src={user?.photoURL}
                         alt={user?.displayName}
                         title={user?.displayName}
+                        defaultValue={user.photoURL}
                       />
                       <h1 className="text-xl font-semibold">
                         {user?.displayName}
@@ -301,16 +311,17 @@ const Navigation = () => {
                     name="userName"
                     className="p-1 bg-gray-100 pl-2 rounded-md border-2 border-black w-full"
                     type="text"
-                    placeholder={user?.displayName}
+                    defaultValue={user?.displayName}
                   />
                 </div>
                 <div>
                   <label className="block">Photo URL</label>
                   <input
                     name="photoUrl"
-                    className="p-1 bg-gray-100 pl-2 rounded-md border-2 border-black w-full"
+                    className="p-1 bg-gray-100 pl-2 rounded-md
+                     border-2 border-black w-full"
                     type="text"
-                    placeholder={user?.photoURL}
+                    defaultValue={user?.photoURL}
                   />
                 </div>
                 <div>
@@ -319,7 +330,7 @@ const Navigation = () => {
                     name="phone"
                     className="p-1 bg-gray-100 pl-2 rounded-md border-2 border-black w-full"
                     type="text"
-                    placeholder={user?.phoneNumber}
+                    defaultValue={user?.phoneNumber}
                   />
                 </div>
                 <button className="px-5 mt-5 w-full mx-auto py-2 bg-[#00CC83] text-white font-bold rounded-lg">

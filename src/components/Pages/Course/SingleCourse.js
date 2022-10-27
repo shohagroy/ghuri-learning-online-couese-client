@@ -29,7 +29,7 @@ const SingleCourse = ({ course }) => {
               to="/enroll"
               className="py-3 px-8 ml-3  bg-[#00CC83] rounded-md text-white font-semibold"
             >
-              Enroll Now
+              Get premium access
             </Link>
           </div>
         </div>

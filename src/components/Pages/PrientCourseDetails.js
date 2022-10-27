@@ -16,7 +16,6 @@ const PrientCourseDetails = () => {
       <div className="flex justify-center flex-col items-center max-w-[1200px] mx-auto">
         <div
           ref={ref}
-          // style={{ width: 800, height: 500 }}
           className="bg-white w-100 h-100 md:w-[800px] md:h-[500px] p-3"
         >
           <div className="text-gray-900 text-black border-2 border-black my-4 p-3">

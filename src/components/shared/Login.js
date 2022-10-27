@@ -83,7 +83,6 @@ const Login = () => {
     const provider = new FacebookAuthProvider();
     facebookSignin(provider)
       .then((result) => {
-        console.log();
         if (result.user.uid) {
           navigate(path, { relative: true });
         }
