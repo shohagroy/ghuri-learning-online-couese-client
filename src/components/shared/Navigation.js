@@ -56,7 +56,6 @@ const Navigation = () => {
 
   const emailVerifiedHandelar = () => {
     EmailVerification().then(() => {
-      console.log("send verification code");
       swal({
         title: "Code Send!",
         text: "Verification Code Send Successfully! Please Chek Your Email",

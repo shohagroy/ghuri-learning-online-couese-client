@@ -28,7 +28,6 @@ const SignUp = () => {
       createUserWithEmail(email, password)
         .then((res) => {
           const newUser = res.user;
-          console.log(newUser);
           userProfileUpdate(userName);
           setSignUpError("");
           if (newUser) {
@@ -37,11 +36,8 @@ const SignUp = () => {
         })
         .catch((error) => {
           setSignUpError(error.code);
-          // console.log(error.code);
         });
     }
-
-    console.log(signUpError);
   };
 
   return (

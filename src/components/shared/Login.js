@@ -49,8 +49,6 @@ const Login = () => {
     const form = e.target;
     const email = form.forgateEmail.value;
 
-    console.log(email);
-
     passwordResetEmail(email)
       .then((res) => {
         setResetPassword(!resetPassword);
