@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PrientCourseDetails = () => {
   const studenDetails = JSON.parse(localStorage.getItem("enrollCourse"));
@@ -62,6 +63,14 @@ const PrientCourseDetails = () => {
                   </tr>
                 </tbody>
               </table>
+              <div className="flex justify-center my-10">
+                <Link
+                  to="/"
+                  className="py-2 rounded-md px-5 bg-blue-600 text-white font-bold text-xl"
+                >
+                  Back to Home
+                </Link>
+              </div>
             </div>
           </div>
         </div>

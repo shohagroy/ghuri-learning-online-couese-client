@@ -141,7 +141,7 @@ const Navigation = () => {
       <div className="max-w-[1200px] mx-auto ">
         {/* Desktop Navigation Menu  */}
         <div className="flex justify-between z-50 items-center mx-3 h-[10vh]   mg:m-0">
-          <img className="h-[40px] md:h-[60px] p-2" src={logo} alt="Logo" />
+          <img className="h-[50px] md:h-[60px] p-2" src={logo} alt="Logo" />
           <div className="items-center relative hidden md:flex">
             <ul className="flex text-[#00CC83] font-bold">
               <NavLink to="/" className="p-3">
@@ -399,6 +399,14 @@ const Navigation = () => {
               >
                 <NavLink className="block" to="FAQ">
                   FAQ
+                </NavLink>
+              </li>
+              <li
+                onClick={() => setToggle(!toggle)}
+                className="p-3 hover:bg-[#00CC83] cursor-pointer m-2 border-b-2 text-center"
+              >
+                <NavLink className="block" to="/enroll">
+                  Enroll
                 </NavLink>
               </li>
               <li
