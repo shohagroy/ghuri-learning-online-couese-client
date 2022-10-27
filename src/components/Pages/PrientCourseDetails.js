@@ -66,7 +66,7 @@ const PrientCourseDetails = () => {
               <div className="flex justify-center my-10">
                 <Link
                   to="/"
-                  className="py-2 rounded-md px-5 bg-blue-600 text-white font-bold text-xl"
+                  className="py-2 rounded-md px-5 bg-[#00CC83] text-white font-bold text-xl"
                 >
                   Back to Home
                 </Link>

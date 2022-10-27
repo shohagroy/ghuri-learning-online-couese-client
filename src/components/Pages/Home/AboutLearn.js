@@ -142,9 +142,12 @@ const AboutLearn = () => {
               <FreeCategory image={image2} name={"Teaching & Academic "} />
               <FreeCategory image={image3} name={"WorkShop & Live Class "} />
             </div>
-            <button className="py-2 m-2 px-4 mx-auto text-white font-bold rounded-lg text- ml-2 bg-[#00CC83]">
+            <Link
+              to="enroll"
+              className="py-2 m-2 px-4 mx-auto text-white font-bold rounded-lg text- ml-2 bg-[#00CC83]"
+            >
               Registration Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>

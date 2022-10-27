@@ -4,7 +4,6 @@ import { AuthProvaider } from "../AuthContex/AuthContex";
 
 const CheckOutFrom = () => {
   const { user } = useContext(AuthProvaider);
-  console.log(user);
 
   const navigate = useNavigate();
   const personalDetilsHandelar = (e) => {
@@ -31,7 +30,6 @@ const CheckOutFrom = () => {
     localStorage.setItem("enrollCourse", JSON.stringify(userDetails));
 
     navigate("/prient-enroll");
-    console.log(userDetails);
   };
   return (
     <div>
@@ -104,6 +102,7 @@ const CheckOutFrom = () => {
               <div className="col-span-full sm:col-span-3">
                 <div className="w-full  text-black">
                   <select
+                    defaultValue=""
                     className="w-full bg-gray-200 rounded-md p-2"
                     name="category"
                   >
@@ -119,6 +118,7 @@ const CheckOutFrom = () => {
               <div className="col-span-full sm:col-span-3">
                 <div className="w-full  text-black">
                   <select
+                    defaultValue=""
                     className="w-full bg-gray-200 rounded-md p-2"
                     name="courseName"
                   >

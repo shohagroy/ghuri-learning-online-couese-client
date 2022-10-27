@@ -20,7 +20,7 @@ const ErrorPage = () => {
             <Link
               rel="noopener noreferrer"
               to="/"
-              className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900"
+              className="px-8 py-3 font-semibold rounded bg-[#00CC83] text-gray-100"
             >
               Back to homepage
             </Link>

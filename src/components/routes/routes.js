@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../Blog/Blog";
 import Main from "../layout/Main";
 import AllCourse from "../Pages/Course/AllCourse";
 import Course from "../Pages/Course/Course";
@@ -24,7 +25,15 @@ export const router = createBrowserRouter([
       },
       { path: "/login", element: <Login /> },
       { path: "/regestation", element: <Regestation /> },
-      { path: "/prient-enroll", element: <PrientCourseDetails /> },
+      {
+        path: "/prient-enroll",
+        element: (
+          <PrivateRoute>
+            <PrientCourseDetails />
+          </PrivateRoute>
+        ),
+      },
+      { path: "/blog", element: <Blog /> },
       {
         path: "/courses",
         loader: () => fetch("http://localhost:5000/courses"),

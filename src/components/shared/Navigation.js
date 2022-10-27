@@ -27,8 +27,6 @@ const Navigation = () => {
   const [profile, setProfile] = useState(false);
   const [profileUpdate, setProfileUpdate] = useState(false);
 
-  console.log(user);
-
   const updateHandelar = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -70,6 +68,7 @@ const Navigation = () => {
       .catch((error) => {
         console.error(error);
       });
+    setToggle(!toggle);
   };
 
   const facebookLoginHandelar = () => {
@@ -77,11 +76,12 @@ const Navigation = () => {
     facebookSignin(provider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
       })
+
       .catch((error) => {
         console.error(error);
       });
+    setToggle(!toggle);
   };
 
   const gitHubLoginHandelar = () => {
@@ -90,12 +90,11 @@ const Navigation = () => {
     gitHubSignin(provaider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
-        // ...
       })
       .catch((error) => {
         console.error(error);
       });
+    setToggle(!toggle);
   };
 
   return (
@@ -141,7 +140,9 @@ const Navigation = () => {
       <div className="max-w-[1200px] mx-auto ">
         {/* Desktop Navigation Menu  */}
         <div className="flex justify-between z-50 items-center mx-3 h-[10vh]   mg:m-0">
-          <img className="h-[50px] md:h-[60px] p-2" src={logo} alt="Logo" />
+          <Link to="/">
+            <img className="h-[50px] md:h-[60px] p-2" src={logo} alt="Logo" />
+          </Link>
           <div className="items-center relative hidden md:flex">
             <ul className="flex text-[#00CC83] font-bold">
               <NavLink to="/" className="p-3">
@@ -437,7 +438,10 @@ const Navigation = () => {
               Log out
             </button>
             <div className="text-center">
-              <div className="my-6 space-y-4 ">
+              <div
+                onClick={() => setProfile(!profile)}
+                className="my-6 space-y-4 "
+              >
                 <button
                   onClick={googleLoginHandelar}
                   aria-label="Login with Google"
