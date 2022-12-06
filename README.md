@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Getting Start This Ghoori Learning Online Course.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Website Link : [Ghoori Learning - Online Programming Course](https://ghoori-learning-course.web.app/).
 
-## Available Scripts
+# How do you install this project in your local folder..
 
-In the project directory, you can run:
+1. First you clone the repo to your PC, then install all the required components.
+This project is built with React components.
 
-### `npm start`
+## React components.
+1. react
+2. firebase
+3. react-router-dom
+4. react-scripts
+5. react-to-pdf
+6. sweetalert
+# Feather of this web Application:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ### `header section and navigation`
+1. First of this website comes home page. navigation bar share many pages. navigation menu fully responsive desktop and mobile devices.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ### `hero section`
+2. Hero section is below the navigation bar. Hero section is also responsive. Clicking on the regestation button will take you to the regestation page. and return back page when the user clicks the submit button after filling the fotm.
 
-### `npm test`
+- ### `Course page`
+3. Course page is the main page this application, this page show many course card items. card have 2 button after click on see details button view full details on course on other route and when click get premium access page after user login. this premium access page have private route component. user login after access this page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ### `enroll and premium access`
 
-### `npm run build`
+4. Whane user regestation and login to get access premium page. premium page have enroll form, user fill the form and click submit button to navigate prient details page. and user view enroll course name.
+user after click download button to download course details pdf page. and click home button to navigate home page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ### `blog section`
+5. There is another option on the website called blog name, there are just 4 questions and their answers In other words, the website is made simple, some advanced features are added, and the site is made responsive on mobile and desktop devices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- ### `footer section`
+After that we have our footer section, the footer section is designed in a simple way, there is a little information about the company name.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This application is simple web application. I try to give every functon here. You are premium fill in this application.
 
-### `npm run eject`
+Finally, thank you for being with me so far.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🚀 Follow Me
+[Facebook](https://www.facebook.com/shohagroy.7771/)  [GitHub](https://github.com/shohagroy)  [Skypee](https://www.skypee.com)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
